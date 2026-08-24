@@ -12,17 +12,33 @@ const perguntas = {
 }
 const perguntas = [ 
     {
-        enunciado: "Pergunta1",
+        enunciado: "Qual é o maior planeta do Sistema Solar?",
         Alternativas: [
-            "Alternativa1",
-            "alternativa2"
+            "Marte",
+            "Júpiter" 
         ] ,
     },
      {
-        enunciado: "Pergunta2",
+        enunciado: "Qual é a capital da França?",
         Alternativas: [
-            "Alternativa1",
-            "alternativa2"
+            "Paris",
+            "Lyon"
+        ], 
+    },
+     {
+        enunciado: "Quantos elementos químicos a tabela periódica possui oficialmente?",
+        Alternativas: [
+            "108",
+            "118"
         ], 
     },
 ];
+
+let atual = 0;
+let perguntaAtual;
+
+function mostraPergunta () {
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+}
+mostraPergunta();
