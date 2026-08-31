@@ -14,22 +14,31 @@ const perguntas = [
     {
         enunciado: "Qual é o maior planeta do Sistema Solar?",
         Alternativas: [
-            "Marte",
-            "Júpiter" 
+            {
+                texto:"Júpiter",
+                afirmacao:"afirmacao"
+            }
+            "Marte" 
         ] ,
     },
      {
         enunciado: "Qual é a capital da França?",
         Alternativas: [
-            "Paris",
+             {
+                texto:"Paris",
+                afirmacao:"afirmacao"
+            }
             "Lyon"
         ], 
     },
      {
         enunciado: "Quantos elementos químicos a tabela periódica possui oficialmente?",
         Alternativas: [
-            "108",
-            "118"
+          {
+                texto:"118",
+                afirmacao:"afirmacao"
+            }
+            "108"
         ], 
     },
 ];
@@ -40,5 +49,16 @@ let perguntaAtual;
 function mostraPergunta () {
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
+    mostraAlternativa ();
 }
-mostraPergunta();
+
+function mostraAlternativa(){
+    for (const alternativa of perguntaAtual.alternativas) {
+       const botaoAlternativa = document.createElement("button");
+       botaoAlternativa.textContent = alternativa.texto;
+       botaoAlternativa.addEventListener("click", function (){
+        atual++;
+        mostraPergunta();
+       })
+    }
+}
