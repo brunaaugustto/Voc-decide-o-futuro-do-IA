@@ -3,10 +3,10 @@ const caixaPerguntas = document.querySelector('.caixa-perguntas');
 const caixaAlternativa = document.querySelector('.caixa-alternativa');
 const caixaResultado = document.querySelector('.caixa-resultado');
 const caixaResultado = document.querySelector('.texto-resultado');
-const listsa = [item1, item2]
+const listas = [item1, item2]
 const perguntas = {
     tamanho: 20,
-    tipo 'HB',
+    tipo: 'HB',
     cor: 'grafite',
     temBorrachaAtras: false
 }
@@ -47,8 +47,13 @@ let atual = 0;
 let perguntaAtual;
 
 function mostraPergunta () {
+    if (atual >= perguntas.length) {
+        mostraResultado();
+        return;
+    }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = " ";
     mostraAlternativa ();
 }
 
@@ -61,4 +66,15 @@ function mostraAlternativa(){
         mostraPergunta();
        })
     }
+}
+
+function respostaSelecionada (opcaoSelecionada){
+    const afirmacoes = opcaoSelecionada.afirmacao;
+    historiaFinal = afirmacoes;
+    atual++;
+    mostraPergunta();
+}
+
+function mostraResultado() {
+    
 }
